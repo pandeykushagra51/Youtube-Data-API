@@ -11,7 +11,7 @@ steps to clone and run by copying local repository
 
 1) run "git clone https://github.com/pandeykushagra51/fampay-project.git" in terminal
 2) run "npm install" in terminal
-3) run "npm start" in terminal and the server will run by default on port 3000, server can be started on differnt port by passin PORT=num in environment variable
+3) run "npm start" in terminal and the server will run by default on port 3000, server can be started on differnt port by passing PORT=num in environment variable
     e.g "PORT=8080 npm start"
 4) now go to browser or Postman to create a get request
 
