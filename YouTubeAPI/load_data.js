@@ -19,12 +19,9 @@ async function callYoutubeApi(){
         console.log(url);
         try {
             const object = await axios.get(url);
-            console.log('pppppp\nppppp');
             if('code' in object && object['code'] != "200"){
                 console.log('some error occured\n error message : ',object['message']);
             } else{
-                console.log('qqqqqqq\nqqqqqq');
-                console.log(object);
                 nextPageToken = object.data.nextPageToken;
                 let items = await object.data.items;
                 let dataList = [];
