@@ -32,9 +32,9 @@ app.post('/addkey/:key',(req,res)=>{
 /**
  * call youtube API at interval of every 10 second
  */
-// setInterval(()=>{
-//     callYoutubeApi();
-// },10000);
+setInterval(()=>{
+    callYoutubeApi();
+},10000);
 
 
 function getQueryData(req,res){
