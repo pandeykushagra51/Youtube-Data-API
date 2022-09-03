@@ -16,12 +16,12 @@ app.get('/search', async (req,res)=>{
     getDataByQuery(queryData);
 })
 
-
+/*
 setInterval(()=>{
- //   console.log('i am called');
+    console.log('i am called');
     callYoutubeApi();
 },8000);
-
+*/
 
 function getQueryData(req,res){
     let urlData = url.parse(req.url,true);
