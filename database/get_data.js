@@ -7,7 +7,12 @@ const connectionParams={
     useUnifiedTopology: true,
     autoIndex: true
 }
-        
+ 
+/**
+ * 
+ * @param {Object} queryData - object containing query data containing pageNumber, limit, query & res object
+ * return data realated to specific query by using full text search feature
+ */
 const getDataByQuery = async (queryData) =>{
     db.connect(url,connectionParams)
     .then(async () => {
@@ -30,22 +35,26 @@ const getDataByQuery = async (queryData) =>{
     })
 }
 
+/**
+ * 
+ * @param {Object} queryData - object containing query data containing pageNumber, limit,& res object
+ * return all the data with corresponding pageNumber and limit
+ */
 const getAllData = async (queryData) =>{
     db.connect(url,connectionParams)
     .then(async () => {
         let limit = queryData.limit;
         let pageNumber = (queryData.pageNumber==null?1:queryData.pageNumber);
         limit = (limit==null?10:limit);
-        console.log(pageNumber,limit,queryData.query);
         query = '.*' + queryData.query + '.*';
-        let data = await userModel.find(
+
+        let data = await userModel.find(    
           { title: { $regex: query } }
           ).sort({"publishTime":-1})
          .skip(pageNumber > 0 ? ( ( pageNumber - 1 ) * limit) : 0)
          .limit(limit);
 
         queryData.res.send(data);
-        console.log(data);
         return data;
     })
     .catch( (err) => {

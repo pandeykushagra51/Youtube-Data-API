@@ -1,16 +1,17 @@
 const express = require('express');
 const url = require('url');
 const {callYoutubeApi} = require('./YouTubeAPI/load_data');
+const {addApiKey} = require('./YouTubeAPI/api-key');
 const {getDataByQuery,getAllData} = require('./database/get_data');
 const app = express();
 
 /**
  * get request on root path
  */
-app.get('/', (req,res)=>{
+app.get('/',async (req,res)=>{
     let queryData = getQueryData(req,res);
     queryData.query='';
-    getAllData(queryData);
+    await getAllData(queryData);
 })
 
 /**
@@ -18,15 +19,24 @@ app.get('/', (req,res)=>{
  */
 app.get('/search', async (req,res)=>{
     let queryData = getQueryData(req,res);
-    getDataByQuery(queryData);
+    await getDataByQuery(queryData);
+})
+
+app.post('/addkey/:key',(req,res)=>{
+    let key = req.params.key;
+    addApiKey(key);
+})
+
+app.use('', (req,res)=>{
+    res.send('Invalid request');
 })
 
 /**
  * call youtube API at interval of every 10 second
  */
-// setInterval(()=>{
-//     callYoutubeApi();
-// },10000);
+setInterval(()=>{
+    callYoutubeApi();
+},10000);
 
 
 function getQueryData(req,res){
