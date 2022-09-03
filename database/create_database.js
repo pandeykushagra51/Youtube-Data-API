@@ -7,7 +7,11 @@ const connectionParams={
     useUnifiedTopology: true,
     autoIndex: true
 }
-        
+
+/**
+ * @param {Object} data - list of data to be inserted in mongo db atlas
+ * insert the data in mongo db atlas database 
+ */
 const insertData = async (data) =>{
     db.connect(url,connectionParams)
     .then(async () => {

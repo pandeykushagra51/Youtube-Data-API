@@ -10,13 +10,10 @@ let nextPageToken= null;
 
 async function callYoutubeApi(){
     let keys = await getApiKeys();
-    console.log(keys);
     for(let key of keys){
         let url = 'https://' + host + path + '?' + 'key=' + key  + '&' + otherQuery + '&q=' + query;
         if(nextPageToken != null)
         url +=  '&' + 'pageToken=' + nextPageToken;
-//        let url = 'https://' + host + path + '?' + 'key=AIzaSyAaisHM-N7twgMkaUyil9GXqQlP98hF60U&'  + otherQuery + '&q=' + query;
-        console.log(url);
         try {
             const object = await axios.get(url);
             if('code' in object && object['code'] != "200"){
@@ -27,7 +24,6 @@ async function callYoutubeApi(){
                 let dataList = [];
                 for(index in items){
                     dataList.push(items[index].snippet);
-                    console.log(items[index].snippet);
                 }
                 insertData(dataList);
                 break;
