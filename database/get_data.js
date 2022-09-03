@@ -23,7 +23,7 @@ const getDataByQuery = async (queryData) =>{
         let data = await userModel.find(
             { $text: { $search: queryData.query } },
             { score: { $meta: "textScore" } }
-          ).sort({ score: { $meta: "textScore" }})
+          ).sort({"publishTime":-1},{ score: { $meta: "textScore" }})
          .skip(pageNumber > 0 ? ( ( pageNumber - 1 ) * limit) : 0)
          .limit(limit);
 
