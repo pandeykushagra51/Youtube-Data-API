@@ -28,9 +28,6 @@ app.post('/addkey/:key',(req,res)=>{
     res.send('done successfully');
 })
 
-app.use('', (req,res)=>{
-    res.send('Invalid request');
-})
 
 /**
  * call youtube API at interval of every 10 second
