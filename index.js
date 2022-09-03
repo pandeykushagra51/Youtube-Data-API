@@ -25,6 +25,7 @@ app.get('/search', async (req,res)=>{
 app.post('/addkey/:key',(req,res)=>{
     let key = req.params.key;
     addApiKey(key);
+    res.send('done successfully');
 })
 
 app.use('', (req,res)=>{
@@ -34,9 +35,9 @@ app.use('', (req,res)=>{
 /**
  * call youtube API at interval of every 10 second
  */
-setInterval(()=>{
-    callYoutubeApi();
-},10000);
+// setInterval(()=>{
+//     callYoutubeApi();
+// },10000);
 
 
 function getQueryData(req,res){
