@@ -1,6 +1,5 @@
 const express = require('express');
 const url = require('url');
-const {callYoutubeApi} = require('./YouTubeAPI/load_data');
 const {addApiKey} = require('./YouTubeAPI/api-key');
 const {getDataByQuery,getAllData} = require('./database/get_data');
 const app = express();
