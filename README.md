@@ -5,6 +5,7 @@ Supported APIs
    additional optional query parameter like pageNumber and limit can be added e.g. "http://localhost:3000/?query=sports&pageNumber=4&limit=5" url provide the 4th page      with 5 results
 2) get request with path /search i.e  "http://localhost:3000/search?query=sports" search also require a query parameter named "query" as shown in example,
     optionally pageNumber and limit paramter can also be added e.g. "http://localhost:3000/search?query=sports&pageNumber=4&limit=3"
+In all get request default value of pageNumber and limit is 1,10 respectively.
 
 
 steps to clone and run by copying local repository
