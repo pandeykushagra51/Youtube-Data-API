@@ -1,4 +1,5 @@
 const server = require('./index.js');
+const {callYoutubeApi} = require('./YouTubeAPI/load_data');
 const PORT = process.env.PORT || 3000;
 
 
