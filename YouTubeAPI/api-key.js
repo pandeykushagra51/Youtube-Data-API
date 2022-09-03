@@ -13,7 +13,7 @@ getApiKeys = async () => keys;
 addApiKey = (key) => { 
     keys.push(key);
     // authenticate the api key before saving in file
-    fs.writeFile(''./YouTubeAPI/keys.json'',JSON.stringify(keys),(err)=>{
+    fs.writeFile(''./YouTubeAPI/keys.json',JSON.stringify(keys),(err)=>{
         if(err){
             console.log('some error occured \n err message: }',err);
             return;
