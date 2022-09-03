@@ -11,5 +11,7 @@ var userSchema = new mongoose.Schema({
             liveBroadcastContent: String,
             publishTime: String
         });
+
+userSchema.index({ title: 'text', description: 'text' },{weights: {title:1, description:3}});
  
 module.exports = mongoose.model('Users', userSchema);

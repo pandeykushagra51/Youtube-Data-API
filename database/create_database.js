@@ -4,7 +4,8 @@ const url = 'mongodb+srv://kushagrapandey:fampay@youtube.5eo8zce.mongodb.net/?re
 
 const connectionParams={
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
+    autoIndex: true
 }
         
 const insertData = async (data) =>{
